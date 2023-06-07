@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,26 +6,25 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <a href="{{ route('usercreate')}}" class="btn btn-primary mb-2">Create Courses</a>
+            <a href="{{ route('coursecreate')}}" class="btn btn-primary mb-2">Create Courses</a>
             <br>
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Course Name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($blog_users as $blog_user)
+                    @foreach($courses as $course)
                     <tr>
-                        <td>{{ $blog_user->id}}</td>
-                        <td>{{ $blog_user->first_name}}</td>
-                        <td>{{ $blog_user->second_name}}</td>
-                        <td>{{ $blog_user->username}}</td>
-                        <td>{{ $blog_user->email}}</td>
+                        <td>{{ $course->id}}</td>
+                        <td>{{ $course->course_name}}</td>
+                 
                         <td>
-                            <a href="{{route('usershow', $blog_user->id)}}" class="btn btn-primary">Show</a>
-                            <a href="{{route('useredit', $blog_user->id)}}" class="btn btn-primary">Edit</a>
-                            <form action="{{route('userdelete', $blog_user->id)}}" method="post"  class="d-inline">
+                            <a href="{{route('courseshow', $course->id)}}" class="btn btn-primary">Show</a>
+                            <a href="{{route('courseedit', $course->id)}}" class="btn btn-primary">Edit</a>
+                            <form action="{{route('coursedelete', $course->id)}}" method="post"  class="d-inline">
                             @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>
