@@ -5,6 +5,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\Blog_UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SchoolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +57,19 @@ Route::post('enrollment', [EnrollController::class, 'store'])->name('enrollments
 Route::put('enrollment/{enrollment}', [EnrollController::class, 'update'])->name('enrollmentupdate');
 Route::delete('enrollment/{enrollment}', [EnrollController::class, 'destroy'])->name('enrollmentdelete');
 
+
+Route::get('/studenthome', [StudentController::class, 'index'])->name('studenthome');
+Route::get('student/{id}create', [StudentController::class, 'create'])->name('studentcreate');
+Route::get('student/{student}/edit', [StudentController::class, 'edit'])->name('studentedit');
+Route::get('student/{student}', [StudentController::class, 'show'])->name('studentshow');
+Route::post('student', [StudentController::class, 'store'])->name('studentstore');
+Route::put('student/{student}', [StudentController::class, 'update'])->name('studentupdate');
+Route::delete('student/{student}', [StudentController::class, 'destroy'])->name('studentdelete');
+
+Route::get('/schoolhome', [SchoolController::class, 'index'])->name('schoolhome');
+Route::get('school/create', [SchoolController::class, 'create'])->name('schoolcreate');
+Route::get('school/{school}/edit', [SchoolController::class, 'edit'])->name('schooledit');
+Route::get('school/{school}', [SchoolController::class, 'show'])->name('schoolshow');
+Route::post('school', [SchoolController::class, 'store'])->name('schoolstore');
+Route::put('school/{school}', [SchoolController::class, 'update'])->name('schoolupdate');
+Route::delete('school/{school}', [SchoolController::class, 'destroy'])->name('schooldelete');
